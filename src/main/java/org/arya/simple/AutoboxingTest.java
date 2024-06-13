@@ -22,9 +22,9 @@ public class AutoboxingTest {
         System.out.println("obj1 == obj2 : " + (obj1 == obj2)); // true
 
         // Example 4: equality operator - pure object comparison
-        Integer one = new Integer(1); // no autoboxing
-        Integer anotherOne = new Integer(1);
-        System.out.println("one == anotherOne : " + (one == anotherOne)); // false
+        //Integer one = new Integer(1); // no autoboxing
+        //Integer anotherOne = new Integer(1);
+        //System.out.println("one == anotherOne : " + (one == anotherOne)); // false
 
         Integer int1 = Integer.valueOf(1);
         Integer int2 = Integer.valueOf(1);

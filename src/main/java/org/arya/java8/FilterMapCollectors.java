@@ -42,13 +42,21 @@ public class FilterMapCollectors {
         System.out.println("Case 4: " + case4);
 
 
-
         // Case 5:
         Employee case5 = employeeList.stream()
                 .filter(x -> "muni".equals(x.getName()))
                 .findAny()
                 .orElse(null);
         System.out.println("Case 5: " + case5);
+
+        boolean b = employeeList.stream().anyMatch(emp -> "muni".equals(emp.getName()));
+        System.out.println("Case 1.0: "+b);
+
+        Optional<Employee> first = employeeList.stream().filter(emp -> "muni".equals(emp.getName())).findFirst();
+        System.out.println("Case 1.1: "+first.get());
+
+        Optional<Employee> any = employeeList.parallelStream().filter(emp -> "muni".equals(emp.getName())).findAny();
+        System.out.println("Case 1.2: "+any.get());
 
         // Case 6:
         String name = employeeList.stream()
@@ -57,6 +65,10 @@ public class FilterMapCollectors {
                 .findAny()
                 .orElse("");
         System.out.println("Case 6: " + name);
+
+        // orElse(): returns the value if present, otherwise returns other, invokes or return value even if value present.
+        // orElseGet(): returns the value if present, otherwise invokes other and returns the result of its invocation
+        // improves performance as it lazy invokes method if value is not present
 
         // Case 7:
         List<String> case7 = employeeList.stream()
@@ -82,7 +94,7 @@ public class FilterMapCollectors {
                 .toArray(Employee[]::new);
         System.out.println("Case 10: " + Arrays.toString(employees));
 
-        // Case 11:
+        // Case 11: use mapToInt() mapToXXX() on aggregate functions
         long case11 = namesList.stream()
                 .mapToInt(String::length).sum();
         System.out.println("Case 11: " + case11);

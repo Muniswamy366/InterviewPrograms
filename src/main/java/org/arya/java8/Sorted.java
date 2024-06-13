@@ -62,8 +62,8 @@ public class Sorted {
         System.out.println("Case 5: " + case5);
 
         // Case 6
-        Stream<Employee> case6 = employees.stream()
-                .sorted(Comparator.comparingInt(Employee::getAge));
+        List<Employee> case6 = employees.stream()
+                .sorted(Comparator.comparingInt(Employee::getAge)).toList();
         System.out.println("Case 6: " + case6);
 
         // Case 7

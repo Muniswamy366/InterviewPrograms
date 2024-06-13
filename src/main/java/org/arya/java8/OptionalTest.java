@@ -52,12 +52,15 @@ public class OptionalTest {
         //name = null;
         String case5 = Optional.ofNullable(name)
                 .orElseGet(DefaultValue::getDefault);
-        // DefaultValue getDefault() will not invoked even when the value is present
+        // DefaultValue getDefault() it will invoke when value is not present
         System.out.println("Case 5: " + case5);
 
         // Case 6
         //name = null;
         String case6 = Optional.ofNullable(name).orElseThrow(IllegalArgumentException::new);
         System.out.println("Case 6: " + case6);
+
+        String case7 = Optional.ofNullable(name).orElseThrow(() -> new IllegalArgumentException("error message"));
+        System.out.println("Case 7: " + case7);
     }
 }

@@ -2,17 +2,27 @@ package org.arya.java8;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.arya.java8.code.examples.Converter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Miscellaneous {
     public static void main(String[] args) {
+
+        Function<String, Integer> stringLengthFunction = String::length;
+        Integer length = stringLengthFunction.apply("muni");
+        System.out.println("Length of the string: " + length);
+
         Consumer<String> consumer1 = s -> System.out.println(s);
         Consumer<String> consumer2 = System.out::println;
 
@@ -24,6 +34,14 @@ public class Miscellaneous {
         Predicate<Integer> lowerThanTwenty = (i) -> i < 20;
         boolean result = greaterThanTen.and(lowerThanTwenty).test(15);
         System.out.println(result);
+
+        Supplier<LocalDateTime> s = LocalDateTime::now;
+        LocalDateTime time = s.get();
+        System.out.println(time);
+
+        Supplier<Integer> randomNumberSupplier = () -> new Random().nextInt(100);
+        Integer randomNumber = randomNumberSupplier.get();
+        System.out.println("Random number: " + randomNumber);
 
         // negate() method
         boolean result2 = greaterThanTen.and(lowerThanTwenty).negate().test(15);

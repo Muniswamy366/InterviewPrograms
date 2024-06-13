@@ -1,5 +1,8 @@
 package org.arya.java8;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -98,6 +101,8 @@ public class FlatMap {
     }
 }
 
+@Setter
+@Getter
 class Student {
 
     private String name;
@@ -110,19 +115,4 @@ class Student {
         this.book.add(book);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<String> getBook() {
-        return book;
-    }
-
-    public void setBook(Set<String> book) {
-        this.book = book;
-    }
 }

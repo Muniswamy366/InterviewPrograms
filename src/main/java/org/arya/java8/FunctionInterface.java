@@ -22,7 +22,7 @@ public class FunctionInterface {
         // Case 3:
         Function<Integer, Integer> function1 = t -> (t - 5);
         Function<Integer, Integer> function2 = t -> (t * 2);
-        // first executes function1 then function2
+        // function chaining first executes function1 then function2
         int a = function1.andThen(function2).apply(50);
         System.out.println("Case 3: " + a);
 

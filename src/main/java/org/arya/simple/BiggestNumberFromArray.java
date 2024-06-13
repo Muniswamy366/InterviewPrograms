@@ -9,7 +9,7 @@ class BiggestNumberFromArray {
     static void printLargest(List<String> arr) {
 
         Collections.sort(arr, (X, Y) -> {
-            return (Y + X).compareTo(X + Y);//We need decending order to get max.
+            return (Y + X).compareTo(X + Y);//We need descending order to get max.
         });
 
         arr.forEach(System.out::print);

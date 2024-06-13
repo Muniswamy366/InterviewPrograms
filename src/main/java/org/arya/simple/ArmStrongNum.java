@@ -10,9 +10,9 @@ public class ArmStrongNum {
             sum = (int) (sum + Math.pow(n % 10, 3));
             n = n / 10;
         }
-        if (temp == sum)
+        if (temp == sum) {
             System.out.println("armstrong");
-        else
+        } else
             System.out.println("not");
     }
 
