@@ -4,16 +4,17 @@ public class ArmStrongNum {
 
     public static void main(String[] args) {
 
-        int n = 371, sum = 0, temp = n;
+        int number = 371, armstrongSum = 0, originalNumber = number;
 
-        while (n > 0) {
-            sum = (int) (sum + Math.pow(n % 10, 3));
-            n = n / 10;
+        while (number > 0) {
+            armstrongSum = (int) (armstrongSum + Math.pow(number % 10, 3));
+            number = number / 10;
         }
-        if (temp == sum) {
-            System.out.println("armstrong");
-        } else
-            System.out.println("not");
+        if (originalNumber == armstrongSum) {
+            System.out.println(originalNumber + " is an Armstrong number");
+        } else {
+            System.out.println(originalNumber + " is not an Armstrong number");
+        }
     }
 
 }
