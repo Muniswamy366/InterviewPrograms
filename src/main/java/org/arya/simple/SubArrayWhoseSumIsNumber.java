@@ -14,10 +14,15 @@ public class SubArrayWhoseSumIsNumber {
 
             if (sum > num) {
                 sum = sum - arr[start++];
-            } else if (sum == num) {
-                System.out.println(num);
-                System.out.println(start);
-                System.out.println(i);
+            }
+
+            /*while (sum > num) {
+                sum -= arr[start++];
+            }*/
+
+            if (sum == num) {
+                // Print the sum and the indices of the subarray
+                System.out.println("Subarray with Number " + num + " found from index " + start + " to " + i);
             }
         }
 
