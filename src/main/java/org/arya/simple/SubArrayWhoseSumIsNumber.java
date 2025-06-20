@@ -21,8 +21,7 @@ public class SubArrayWhoseSumIsNumber {
             }*/
 
             if (sum == num) {
-                // Print the sum and the indices of the subarray
-                System.out.println("Subarray with Number " + num + " found from index " + start + " to " + i);
+                System.out.println("Sub array with Number " + num + " found from index " + start + " to " + i);
             }
         }
 
