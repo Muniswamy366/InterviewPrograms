@@ -26,7 +26,8 @@ public class FilterMapCollectors {
 
         // Case 3:
         Stream<String> numberStream1 = Arrays.stream(new String[]{"3", "6", "8", "14", "15"});
-        numberStream1.mapToInt(num -> Integer.parseInt(num))
+        //numberStream1.mapToInt(num -> Integer.parseInt(num))
+        numberStream1.mapToInt(Integer::parseInt)
                 .filter(num -> num % 3 == 0)
                 .forEach(System.out::println);
 
@@ -45,7 +46,7 @@ public class FilterMapCollectors {
         // Case 5:
         Employee case5 = employeeList.stream()
                 .filter(x -> "muni".equals(x.getName()))
-                .findAny()
+                .findAny() // Returns any element, possibly not the first — especially useful for parallel streams.
                 .orElse(null);
         System.out.println("Case 5: " + case5);
 
@@ -53,6 +54,7 @@ public class FilterMapCollectors {
         System.out.println("Case 1.0: "+b);
 
         Optional<Employee> first = employeeList.stream().filter(emp -> "muni".equals(emp.getName())).findFirst();
+        // Returns the first element of the stream (in encounter order).
         System.out.println("Case 1.1: "+first.get());
 
         Optional<Employee> any = employeeList.parallelStream().filter(emp -> "muni".equals(emp.getName())).findAny();
