@@ -10,6 +10,7 @@ public class BalancedParenthensies {
 		System.out.println(balancedParenthensies("{(a},b)"));
 		System.out.println(balancedParenthensies("{)(a,b}"));
 	}
+	
 
 	public static boolean balancedParenthensies(String s) {
 		char[] charArray = s.toCharArray();
