@@ -1,6 +1,10 @@
 package org.arya.advance;
 
 
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 public class DistinctArray {
 
     public static void main(String[] args) {
@@ -39,5 +43,51 @@ public class DistinctArray {
             }
         }
 
+        System.out.println();
+        System.out.println(Arrays.toString(getDistinctUsingArray(arr)));
+
+    }
+
+    public static int[] getDistinctUsingArray(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return new int[0];
+        }
+
+        int distinctCount = 1;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[i - 1]) {
+                distinctCount++;
+            }
+        }
+
+        int[] result = new int[distinctCount];
+        result[0] = arr[0];
+        int index = 1;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] != arr[i - 1]) {
+                result[index++] = arr[i];
+            }
+        }
+        return result;
+    }
+
+    public static int[] getDistinctElements(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return new int[0];
+        }
+
+        Set<Integer> distinctSet = new LinkedHashSet<>();
+        for (int num : arr) {
+            distinctSet.add(num);
+        }
+
+        // Convert Set to array
+        int[] result = new int[distinctSet.size()];
+        int index = 0;
+        for (int num : distinctSet) {
+            result[index++] = num;
+        }
+        return result;
     }
 }

@@ -109,7 +109,7 @@ public class EqualsAndHashCode {
 		Emp e2 = new Emp(1, "muni");
 		Emp e3 = new Emp(1, "muni");
 
-		Set<Emp> emps = new HashSet<Emp>();
+		Set<Emp> emps = new HashSet<>();
 
 		emps.add(e1);
 		emps.add(e2);

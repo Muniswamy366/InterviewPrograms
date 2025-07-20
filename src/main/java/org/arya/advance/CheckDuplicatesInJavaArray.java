@@ -46,7 +46,7 @@ public class CheckDuplicatesInJavaArray {
 	 */
 	public static boolean checkDuplicateUsingSet(String[] input) {
 		List<String> inputList = Arrays.asList(input);
-		Set<String> inputSet = new HashSet<String>(inputList);
+		Set<String> inputSet = new HashSet<>(inputList);
 		return inputSet.size() < inputList.size();
 	}
 
@@ -56,7 +56,7 @@ public class CheckDuplicatesInJavaArray {
 	 * contains duplicates in Java
 	 */
 	public static boolean checkDuplicateUsingAdd(String[] input) {
-		Set<String> tempSet = new HashSet<String>();
+		Set<String> tempSet = new HashSet<>();
 		for (String str : input) {
 			if (!tempSet.add(str)) {
 				return true;
