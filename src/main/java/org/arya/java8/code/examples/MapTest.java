@@ -16,7 +16,7 @@ public class MapTest {
         // Reverse the string
         Converter<String, String> reverseString = str -> new StringBuilder(str).reverse().toString();
 
-        List<Integer> collect1 = list1.stream().map(strToInt::convert).collect(Collectors.toList());
+        List<Integer> collect1 = list1.stream().map(strToInt::convert).toList();
         System.out.println(collect1);
 
         List<String> collect2 = list2.stream().map(strToUpper::convert).collect(Collectors.toList());
