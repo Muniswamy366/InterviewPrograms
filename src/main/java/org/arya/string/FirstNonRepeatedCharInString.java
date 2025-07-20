@@ -13,18 +13,19 @@ public class FirstNonRepeatedCharInString {
 	}
 
 	public static char getFirstNonRepeatedChar(String str) {
-		Map<Character, Integer> counts = new LinkedHashMap<>(str.length());
+		Map<Character, Integer> counts = new LinkedHashMap<>();
 
 		for (char c : str.toCharArray()) {
-			counts.put(c, counts.containsKey(c) ? counts.get(c) + 1 : 1);
+			counts.put(c, counts.getOrDefault(c, 0) + 1);
 		}
 
-		for (Entry<Character, Integer> entry : counts.entrySet()) {
+		for (var entry : counts.entrySet()) {
 			if (entry.getValue() == 1) {
 				return entry.getKey();
 			}
 		}
-		throw new RuntimeException("didn't find any non repeated Character");
+
+		throw new RuntimeException("No non-repeated character found");
 	}
 
 }

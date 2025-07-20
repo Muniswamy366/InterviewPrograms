@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class StringAnagram {
 
     public static void main(String[] args) {
-        System.out.println(isAnagramBest("word", "wrdo"));
+        System.out.println(isPermutationBest("word", "wrdo"));
     }
 
     public static boolean isAnagramBest(String s1, String s2) {
@@ -48,7 +48,46 @@ public class StringAnagram {
             }
         }
 
-        return sbSecond.length() == 0;
+        return sbSecond.isEmpty();
     }
 
+
+    // Approach 1: Using character counting (most efficient)
+    // This is best approach.
+    public static boolean isPermutationBest(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        int[] charCount = new int[128]; // Assuming ASCeII
+
+        // Count characters in first string
+        for (char c : s1.toCharArray()) {
+            charCount[c]++;
+        }
+
+        // Verify with second string
+        for (char c : s2.toCharArray()) {
+            charCount[c]--;
+            if (charCount[c] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Approach 2: Using sorting
+    public static boolean isPermutationBySorting(String s1, String s2) {
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+
+        char[] str1 = s1.toCharArray();
+        char[] str2 = s2.toCharArray();
+
+        Arrays.sort(str1);
+        Arrays.sort(str2);
+
+        return Arrays.equals(str1, str2);
+    }
 }
