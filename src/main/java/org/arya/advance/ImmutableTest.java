@@ -20,7 +20,7 @@ public final class ImmutableTest {
 		System.out.println("Performing Deep Copy for Object initialization");
 		this.id = i;
 		this.name = n;
-		HashMap<String, String> tempMap = new HashMap<String, String>();
+		HashMap<String, String> tempMap = new HashMap<>();
 		String key;
 		Iterator<String> it = hm.keySet().iterator();
 		while (it.hasNext()) {
