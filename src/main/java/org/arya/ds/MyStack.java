@@ -13,7 +13,7 @@ public class MyStack<E> {
 	}
 
 	public static void main(String[] args) {
-		MyStack<Integer> stack = new MyStack<Integer>(5);
+		MyStack<Integer> stack = new MyStack<>(5);
 		try {
 			stack.push(4);
 			stack.push(8);

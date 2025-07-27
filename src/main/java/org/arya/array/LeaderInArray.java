@@ -1,4 +1,4 @@
-package org.arya.simple;
+package org.arya.array;
 
 public class LeaderInArray {
 
