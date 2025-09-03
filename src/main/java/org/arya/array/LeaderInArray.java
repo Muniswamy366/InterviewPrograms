@@ -4,7 +4,7 @@ public class LeaderInArray {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{16, 17, 4, 3, 5, 2};
+        int[] arr = new int[]{16, 17, 4, 3, 5, 2}; // 2, 5, 17
         int leader = arr[arr.length - 1];
 
         System.out.println(leader);
