@@ -1,4 +1,4 @@
-package org.arya.java9;
+package org.arya.java8.java9;
 
 public interface Java9PrivateMethods {
     double getPrice();

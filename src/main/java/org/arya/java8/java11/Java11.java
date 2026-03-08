@@ -1,4 +1,4 @@
-package org.arya.java11;
+package org.arya.java8.java11;
 
 import java.util.function.Predicate;
 

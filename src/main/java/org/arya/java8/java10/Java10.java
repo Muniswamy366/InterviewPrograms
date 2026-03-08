@@ -1,4 +1,4 @@
-package org.arya.java10;
+package org.arya.java8.java10;
 
 import java.util.ArrayList;
 import java.util.List;
