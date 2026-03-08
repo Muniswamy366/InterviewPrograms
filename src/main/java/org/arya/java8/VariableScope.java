@@ -13,7 +13,7 @@ public class VariableScope {
         int b;
         Function<Integer, Integer> half = c -> {
             //a = 10;
-            //b = 10; we can read variables but we can't write values.
+            //b = 10; we can read variables, but we can't write values.
             return c + a;
         };
         System.out.println("Case 1: " + half.apply(10));

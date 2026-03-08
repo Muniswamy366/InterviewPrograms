@@ -14,7 +14,7 @@ public class FilterMapCollectors {
         List<String> namesList = Arrays.asList("muni", "swamy", "palla", "arya");
         namesList.stream()
                 .filter(name -> name.contains("a"))
-                .forEach(p -> System.out.print(p));
+                .forEach(System.out::print);
         namesList.stream()
                 .filter(name -> name.contains("a"))
                 .forEach(System.out::println);
@@ -39,7 +39,7 @@ public class FilterMapCollectors {
                 , new Employee("muni", 44, 4000));
         List<Employee> case4 = employeeList.stream()
                 .filter(emp -> emp.getAge() >= 18)
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 4: " + case4);
 
 
@@ -62,8 +62,8 @@ public class FilterMapCollectors {
 
         // Case 6:
         String name = employeeList.stream()
-                .filter(x -> "muni".equals(x.getName()))
-                .map(Employee::getName)                        //convert stream to String
+                .map(Employee::getName)
+                .filter("muni"::equals)                        //convert stream to String
                 .findAny()
                 .orElse("");
         System.out.println("Case 6: " + name);
@@ -75,25 +75,24 @@ public class FilterMapCollectors {
         // Case 7:
         List<String> case7 = employeeList.stream()
                 .map(Employee::getName)
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 7: " + case7);
 
         // Case 8:
         List<String> case8 = namesList.stream()
                 .map(String::toUpperCase)
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 8: " + case8);
 
         // Case 9:
         List<Employee> case9 = employeeList.stream().map(emp -> {
             emp.setSalary(1000); // not sure i can do this check later
             return emp;
-        }).collect(Collectors.toList());
+        }).toList();
         System.out.println("Case 9: " + case9);
 
         // Case 10:
-        Employee[] employees = employeeList.stream()
-                .toArray(Employee[]::new);
+        Employee[] employees = employeeList.toArray(Employee[]::new);
         System.out.println("Case 10: " + Arrays.toString(employees));
 
         // Case 11: use mapToInt() mapToXXX() on aggregate functions
@@ -105,14 +104,14 @@ public class FilterMapCollectors {
         List<Integer> num = Arrays.asList(1, 2, 3, 4, 5);
         List<Integer> case12 = num.stream()
                 .map(n -> n * 2)
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 12: " + case12);
 
         // Collectors
         // Case 13:
         // toSet()
         List<String> case13 = namesList.stream()
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 13: " + case13);
 
         // Case 14:
@@ -136,7 +135,7 @@ public class FilterMapCollectors {
                 .collect(Collectors.toCollection(LinkedList::new));
         System.out.println("Case 17: " + case17);
 
-        // read more about Collecctors
+        // read more about Collectors
         // https://www.java67.com/2018/11/10-examples-of-collectors-in-java-8.html
 
 

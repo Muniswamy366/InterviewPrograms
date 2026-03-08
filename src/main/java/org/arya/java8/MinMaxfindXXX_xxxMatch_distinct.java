@@ -4,14 +4,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
 public class MinMaxfindXXX_xxxMatch_distinct {
     public static void main(String[] args) {
 
         // Case 1 max
         List<Integer> numbers = Arrays.asList(1, 2, 3, 7, 6);
-        Integer case1 = numbers.stream()
+        int case1 = numbers.stream()
                 .mapToInt(v -> v)
                 .max()
                 .orElseThrow(NoSuchElementException::new);
@@ -62,7 +61,7 @@ public class MinMaxfindXXX_xxxMatch_distinct {
         // Case 8
         List<String> case8 = names.stream()
                 .distinct()
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 8: " + case8);
 
     }

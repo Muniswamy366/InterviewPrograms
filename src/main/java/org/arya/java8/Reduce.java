@@ -30,6 +30,8 @@ public class Reduce {
 
 
         // Case 3:
+        //Step 1:  subtotal = 0 + 1 = 1
+        //Step 2:  subtotal = 1 + 2 = 3
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
         int result = numbers.stream()
                 .reduce(0, (subtotal, element) -> subtotal + element);

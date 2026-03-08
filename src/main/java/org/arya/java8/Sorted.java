@@ -43,7 +43,7 @@ public class Sorted {
         List<String> case2 = names.stream()
                 .sorted()
                 //.sorted(Comparator.naturalOrder())
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 2: " + case2); // returns new sorted stream
 
         // Case 3

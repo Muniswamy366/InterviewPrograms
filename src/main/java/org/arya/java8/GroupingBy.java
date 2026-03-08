@@ -58,7 +58,7 @@ public class GroupingBy {
                 .collect(Collectors.groupingBy(BlogPost::getType));
         System.out.println("Case 1: " + postsPerType);
 
-        // Case 2:
+        // Case 2: refer case for  Grouping By Multiple Fields
         // Grouping by with a Complex Map Key Type
         Map<Tuple, List<BlogPost>> postsPerTypeAndAuthor = posts.stream()
                 .collect(Collectors.groupingBy(post -> new Tuple(post.getType(), post.getAuthor())));

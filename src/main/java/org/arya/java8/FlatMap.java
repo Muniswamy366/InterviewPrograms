@@ -17,8 +17,8 @@ public class FlatMap {
         // Case 1:
         String[][] data = new String[][]{{"aa", "b"}, {"ac", "d"}, {"e", "af"}};
         List<String> charList = Arrays.stream(data)
-                .flatMap(x -> Arrays.stream(x)) // String[][] to String[]
-                .collect(Collectors.toList());
+                .flatMap(Arrays::stream) // String[][] to String[]
+                .toList();
         System.out.println("Case 1: " + charList);
 
 
@@ -29,7 +29,7 @@ public class FlatMap {
                 Arrays.asList("Mark", "Zuckerberg"));
         List<String> namesFlatStream = namesNested.stream()
                 .flatMap(Collection::stream) // List<List<String>> to List<String>
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 2: " + namesFlatStream);
 
 
@@ -49,11 +49,12 @@ public class FlatMap {
         studentList.add(obj1);
         studentList.add(obj2);
 
+        //List<Student>, List<Book>, so flatMap
         List<String> collect = studentList.stream()
-                .map(x -> x.getBook())      //Stream<Set<String>>
-                .flatMap(x -> x.stream())   //Stream<String>
+                .map(Student::getBook)      //Stream<Set<String>>
+                .flatMap(Collection::stream)   //Stream<String>
                 .distinct()
-                .collect(Collectors.toList());
+                .toList();
         System.out.println("Case 3: " + collect);
 
 
@@ -63,35 +64,35 @@ public class FlatMap {
         languageNames.put("backend", Arrays.asList("Go", "Java", "Python", "Ruby"));
 
         List<String> allLanguages = languageNames.values().stream()
-                .flatMap(each -> each.stream())
-                .collect(Collectors.toList());
+                .flatMap(Collection::stream)
+                .toList();
         System.out.println("Case 4: " + allLanguages);
 
 
         // Case 5:
-        Map<Integer, Map<Gender, List<String>>> allStudentsGorupedByAgeAndThenGender = new HashMap<>();
+        Map<Integer, Map<Gender, List<String>>> allStudentsGroupedByAgeAndThenGender = new HashMap<>();
         HashMap<Gender, List<String>> studentsGroupedByGender = new HashMap<>();
         studentsGroupedByGender.put(Gender.male, Arrays.asList("Christian", "Barack", "Andrew"));
         studentsGroupedByGender.put(Gender.female, Arrays.asList("Andre", "Lorina", "Rakhi"));
-        allStudentsGorupedByAgeAndThenGender.put(16, studentsGroupedByGender);
+        allStudentsGroupedByAgeAndThenGender.put(16, studentsGroupedByGender);
 
-        // i want to get all the student names
-        List<String> allLanguages1 = allStudentsGorupedByAgeAndThenGender.values().stream()
+        // I want to get all the student names
+        List<String> allLanguages1 = allStudentsGroupedByAgeAndThenGender.values().stream()
                 .flatMap(each -> each.values().stream())
-                .flatMap(each -> each.stream()).collect(Collectors.toList());
+                .flatMap(Collection::stream).toList();
         System.out.println("Case 5: " + allLanguages1);
 
 
         // Case 6:
-        Optional<String> optional = Optional.of("Inbetween Result");
-        Optional<String> flatMap = optional.flatMap(s -> processTheOutput(s));
+        Optional<String> optional = Optional.of("In between Result");
+        Optional<String> flatMap = optional.flatMap(FlatMap::processTheOutput);
         System.out.println("Case 6: " + flatMap.get());
 
 
         // Case 7:
         int[] integers = {3, 2, 1, 4, 5};
         Stream<int[]> streamOfIntArray = Stream.of(integers);
-        int sum = streamOfIntArray.flatMapToInt(x -> Arrays.stream(x)).sum();
+        int sum = streamOfIntArray.flatMapToInt(Arrays::stream).sum();
         System.out.println("Case 7: " + sum);
 
     }
