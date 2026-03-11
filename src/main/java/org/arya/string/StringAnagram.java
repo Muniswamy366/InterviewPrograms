@@ -8,10 +8,12 @@ public class StringAnagram {
         System.out.println(isPermutationBest("word", "wrdo"));
     }
 
+    // BEST: Single loop, processes both strings simultaneously
+    // Time: O(n), Space: O(1)
     public static boolean isAnagramBest(String s1, String s2) {
         if (s1.length() != s2.length()) return false;
 
-        int[] counts = new int[256]; // ASCII
+        int[] counts = new int[128]; // ASCII
 
         for (int i = 0; i < s1.length(); i++) {
             counts[s1.charAt(i)]++;
@@ -52,14 +54,15 @@ public class StringAnagram {
     }
 
 
-    // Approach 1: Using character counting (most efficient)
-    // This is best approach.
+    // GOOD: Two loops but has early exit optimization
+    // Time: O(n), Space: O(1)
+    // Advantage: Can return false early if mismatch found
     public static boolean isPermutationBest(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
         }
 
-        int[] charCount = new int[128]; // Assuming ASCeII
+        int[] charCount = new int[128]; // Assuming ASCII
 
         // Count characters in first string
         for (char c : s1.toCharArray()) {
@@ -70,7 +73,7 @@ public class StringAnagram {
         for (char c : s2.toCharArray()) {
             charCount[c]--;
             if (charCount[c] < 0) {
-                return false;
+                return false; // Early exit
             }
         }
         return true;

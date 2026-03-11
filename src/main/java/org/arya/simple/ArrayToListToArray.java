@@ -16,7 +16,7 @@ public class ArrayToListToArray {
 	}
 
 	public static String[] listToArrayJava8(List<String> list) {
-		return list.stream().toArray(String[]::new);
+		return list.toArray(String[]::new);
 	}
 
 }
