@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 class ValueComparator2<K, V extends Comparable<V>> implements Comparator<K> {
 
-	Map<K, V> map = new HashMap<K, V>();
+	Map<K, V> map = new HashMap<>();
 
 	public ValueComparator2(HashMap<K, V> map) {
 		this.map.putAll(map);
@@ -21,7 +21,7 @@ class ValueComparator2<K, V extends Comparable<V>> implements Comparator<K> {
 
 class KeyComparator2<K, V extends Comparable<V>> implements Comparator<K> {
 
-	Map<K, V> map = new HashMap<K, V>();
+	Map<K, V> map = new HashMap<>();
 
 	public KeyComparator2(HashMap<K, V> map) {
 		this.map.putAll(map);
@@ -38,7 +38,7 @@ public class MapSortUsingTreeMap {
 	public static void main(String[] args) {
 
 		// <String, Integer> Map
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		HashMap<String, Integer> map = new HashMap<>();
 		map.put("a", 10);
 		map.put("b", 30);
 		map.put("c", 50);
@@ -47,15 +47,15 @@ public class MapSortUsingTreeMap {
 		System.out.println("Unsorted map: ");
 		System.out.println(map);
 
-		Comparator<String> valueComparator = new ValueComparator2<String, Integer>(map);
-		TreeMap<String, Integer> sortByValue = new TreeMap<String, Integer>(valueComparator);
+		Comparator<String> valueComparator = new ValueComparator2<>(map);
+		TreeMap<String, Integer> sortByValue = new TreeMap<>(valueComparator);
 		sortByValue.putAll(map);
 
 		System.out.println("Sort bye value: ");
 		System.out.println(sortByValue);
 
-		Comparator<String> keyComparator = new KeyComparator2<String, Integer>(map);
-		TreeMap<String, Integer> sortByKey = new TreeMap<String, Integer>();
+		Comparator<String> keyComparator = new KeyComparator2<>(map);
+		TreeMap<String, Integer> sortByKey = new TreeMap<>();
 		sortByKey.putAll(map);
 
 		System.out.println("Sort bye key: ");

@@ -12,40 +12,27 @@ public class DistinctArray {
         int[] arr = new int[]{1, 1, 1, 2, 2, 3, 4, 5};
         int[] temp = new int[9];
 
+        // Usage:
+        int[] nums = {1, 2, 3, 2, 4, 5, 1, 6, 1, 3};
+        System.out.println(removeDuplicatesSorted(nums));
+        // Output: [1, 2, 3, 4, 5, 6]
 
-	/*	int[] result = new int[arr.length];
-		int previous = arr[0];
-		result[0] = previous;
-		int count =0;
-
-		for (int i = 1; i < arr.length; i++) {
-			int ch = arr[i];
-
-			if (previous != ch) {
-				result[count++] = previous;
-			}
-			previous = ch;
-		}*/
-
-        //System.out.println(Arrays.toString(result));
+    }
 
 
-        for (int i = 1; i < arr.length; i++) {
-            boolean isDistinct = false;
-            for (int j = i - 1; j < i; j++) {
-                if (arr[i] == arr[j]) {
-                    isDistinct = true;
-                    break;
-                }
-            }
-            if (!isDistinct) {
-                System.out.print(arr[i - 1] + " ");
+    public static int removeDuplicatesSorted(int[] nums) {
+        Arrays.sort(nums);
+        int index = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[index++] = nums[i];
             }
         }
 
-        System.out.println();
-        System.out.println(Arrays.toString(getDistinctUsingArray(arr)));
-
+        // Print result
+        System.out.println(Arrays.toString(Arrays.copyOf(nums, index)));
+        return index; // New length
     }
 
     public static int[] getDistinctUsingArray(int[] arr) {

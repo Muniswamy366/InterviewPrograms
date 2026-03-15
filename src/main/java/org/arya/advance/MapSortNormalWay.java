@@ -17,7 +17,7 @@ class Test1 {
 
 	public static void sortByKey(Map<String, Integer> unsortedMap) {
 		Set<Map.Entry<String, Integer>> set = unsortedMap.entrySet();
-		List<Map.Entry<String, Integer>> list = new ArrayList<Map.Entry<String, Integer>>(set);
+		List<Map.Entry<String, Integer>> list = new ArrayList<>(set);
 		Collections.sort(list, new KeyComparator1());
 
 		System.out.println("Sort by key: ");
