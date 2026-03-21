@@ -47,7 +47,7 @@ public class LinkedListTest {
 		first.add(5);
 		first.reverseNthNode(first, 4);*/
 
-		SinglyLinkedList<Integer> first = new SinglyLinkedList<Integer>();
+		SinglyLinkedList<Integer> first = new SinglyLinkedList<>();
 		first.head = new Nodes<Integer>(1);
 		first.head.nextNode = new Nodes<Integer>(2);
 		first.head.nextNode.nextNode = new Nodes<Integer>(3);

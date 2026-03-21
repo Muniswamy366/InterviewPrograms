@@ -117,20 +117,20 @@ public class BigONotation {
     // Each pass through the outer loop (0)N requires us
     // to go through the entire list again so N multiplies
     // against itself or it is squared
-    public void bubbleSort() {
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
 
-        startTime = System.currentTimeMillis();
-
-        for (int i = arraySize - 1; i > 1; i--) {
-            for (int j = 0; j < i; j++) {
-                if (theArray[j] > theArray[j + 1]) {
-                    swapValues(j, j + 1);
+        for (int i = 0; i < n - 1; i++) {
+            // why n - i - 1 bigger numbers will move to end in pass
+            // so no need to compare end number
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
-
-        endTime = System.currentTimeMillis();
-        System.out.println("Bubble Sort Took " + (endTime - startTime));
     }
 
     // O (log N) Occurs when the data being used is decreased
